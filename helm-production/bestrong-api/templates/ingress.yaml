@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Release.Name }}-api-ingress
+spec:
+  web-secure:
+    address: ":443"
+  routes:
+    - match: Host(`{{ .Values.ingress.hostname }}`)
+      kind: Rule
+      services:
+        - name: {{ .Release.Name }}-api
+          kind: TraefikService
+          port: {{ .Values.stable.port }}
+  tls:
+    secretName: traefik-cert
+    certResolver: {{ .Values.ingress.clasteIssuareName }}

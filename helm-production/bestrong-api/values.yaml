@@ -1,0 +1,22 @@
+# Deployment configurations  
+stable:
+  replicas: 2
+  version: v1
+  containerSpecImagePullPolicy: Always
+  containerName: bestrong
+  image: maksymperehinets/bestrong-api
+  imageTag: latest
+  resources:
+    requestsMemory: 50Mi
+    requestsCpu: 50m
+    limitsMemory: 90Mi
+    limitsCpu: 100m
+  port: 80
+
+ingress:
+  clasteIssuareName: "letsencrypt-prod"
+  hostname: flux-test.molip.online
+clusterIssuer:
+  email: supercomf128@gmail.com
+  server: "https://acme-v02.api.letsencrypt.org/directory"
+  privateKeySecretName: "letsencrypt-prod-key"
