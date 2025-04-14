@@ -4,14 +4,14 @@ stable:
   version: v1
   containerSpecImagePullPolicy: Always
   containerName: bestrong
-  image: maksymperehinets/test-nodejs
+  image: traefik/whoami
   imageTag: latest
   resources:
     requestsMemory: 200Mi
     requestsCpu: 200m
     limitsMemory: 3000Mi
     limitsCpu: 1000m
-  port: 5173
+  port: 80
 
 ingress:
   clasteIssuareName: "letsencrypt-prod"

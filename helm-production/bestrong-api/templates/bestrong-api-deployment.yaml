@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ .Release.Name }}-api
+    version: {{ .Values.stable.version }}
 spec:
   replicas: {{ .Values.stable.replicas }}
   selector:
@@ -15,17 +16,11 @@ spec:
       labels:
         app: {{ .Release.Name }}-api
     spec:
-    {{- with .Values.stable }}
+    {{-  with .Values.stable }}
       containers:
       - name: {{ .containerName }}
         image: "{{ .image }}:{{ .imageTag }}"
         imagePullPolicy: {{ .containerSpecImagePullPolicy }}
-        command: ["vite", "dev"]
-        args:
-          - "--host"
-          - "0.0.0.0"
-          - "--port"
-          - "{{ .port | toString }}"
         resources:
           requests:
             memory: {{ .resources.requestsMemory }}
@@ -35,5 +30,4 @@ spec:
             cpu: {{ .resources.limitsCpu }}
         ports:
         - containerPort: {{ .port }}
-          name: http
   {{- end }}
