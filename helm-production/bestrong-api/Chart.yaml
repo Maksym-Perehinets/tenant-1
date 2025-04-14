@@ -3,4 +3,4 @@ name: bestrong-api
 description: Helm chart to deploy BeStrong api 
 type: application
 version: 0.0.6
-appVersion: "0.5.0"
+appVersion: "0.6.0"
