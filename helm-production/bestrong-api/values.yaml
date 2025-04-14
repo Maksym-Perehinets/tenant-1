@@ -5,7 +5,7 @@ stable:
   containerSpecImagePullPolicy: Always
   containerName: bestrong
   image: maksymperehinets/bestrong-api
-  imageTag: new
+  imageTag: latest
   resources:
     requestsMemory: 50Mi
     requestsCpu: 50m
