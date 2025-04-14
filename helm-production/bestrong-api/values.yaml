@@ -4,14 +4,14 @@ stable:
   version: v1
   containerSpecImagePullPolicy: Always
   containerName: bestrong
-  image: maksymperehinets/bestrong-api
+  image: maksymperehinets/test-nodejs
   imageTag: latest
   resources:
     requestsMemory: 50Mi
     requestsCpu: 50m
     limitsMemory: 90Mi
     limitsCpu: 100m
-  port: 80
+  port: 5173
 
 ingress:
   clasteIssuareName: "letsencrypt-prod"
