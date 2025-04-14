@@ -7,10 +7,10 @@ stable:
   image: maksymperehinets/test-nodejs
   imageTag: latest
   resources:
-    requestsMemory: 50Mi
-    requestsCpu: 50m
-    limitsMemory: 90Mi
-    limitsCpu: 100m
+    requestsMemory: 200Mi
+    requestsCpu: 200m
+    limitsMemory: 3000Mi
+    limitsCpu: 1000m
   port: 5173
 
 ingress:
